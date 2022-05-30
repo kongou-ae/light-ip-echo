@@ -20,6 +20,7 @@ func returnInfo(w http.ResponseWriter, r *http.Request) {
 		XForwardedFor: r.Header.Get("X-FORWARDED-FOR"),
 	}
 
+	log.Println("RemoteAddr:" + r.RemoteAddr + " | RequestURI:" + r.RequestURI + " | X-FORWARDED-FOR:" + r.Header.Get("X-FORWARDED-FOR"))
 	w.Header().Set("Content-Type", "application/json")
 
 	res, err := json.Marshal(result)
