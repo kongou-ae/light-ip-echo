@@ -34,7 +34,7 @@ func returnInfo(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/", returnInfo)
 
-	err := http.ListenAndServe(":8888", nil)
+	err := http.ListenAndServe(":80", nil)
 	if err != nil {
 		log.Fatal("Error: ", err)
 	}
