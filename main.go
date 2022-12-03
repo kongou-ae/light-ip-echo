@@ -24,7 +24,7 @@ func returnInfo(w http.ResponseWriter, r *http.Request) {
 		XAzureFDID: r.Header.Get("X-Azure-FDID"),
 	}
 
-	log.Println("RemoteAddr:" + r.RemoteAddr + " | RequestURI:" + r.RequestURI + " | X-FORWARDED-FOR:" + r.Header.Get("X-FORWARDED-FOR") + " | Host:" + r.Host + " | XAzureFDID:" + r.Header.Get("XAzureFDID"))
+	log.Println("RemoteAddr:" + r.RemoteAddr + " | RequestURI:" + r.RequestURI + " | X-FORWARDED-FOR:" + r.Header.Get("X-FORWARDED-FOR") + " | Host:" + r.Host + " | XAzureFDID:" + r.Header.Get("X-Azure-FDID"))
 	w.Header().Set("Content-Type", "application/json")
 
 	res, err := json.Marshal(result)
