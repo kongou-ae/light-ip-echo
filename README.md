@@ -2,6 +2,7 @@
 
 Light IP Echo is a super simple web server which can return client's IP  information as JSON format. 
 
+```
 [ ~ ]$ curl -s www1.apps.aro.aimless.jp/api/get | jq 
 {
   "RemoteAddr": "10.0.2.4:55726",
@@ -10,6 +11,7 @@ Light IP Echo is a super simple web server which can return client's IP  informa
   "Host": "www1.apps.aro.aimless.jp",
   "XAzureFDID": ""
 }
+```
 
 ## Usage
 
