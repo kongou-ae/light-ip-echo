@@ -10,8 +10,8 @@ type result struct {
 	RemoteAddr    string `json:"RemoteAddr"`
 	RequestURI    string `json:"RequestURI"`
 	XForwardedFor string `json:"Xforwardedfor"`
-	Host string `json:"Xforwardedfor"`
-	XAzureFDID string `json:"Xforwardedfor"`
+	Host string `json:"Host"`
+	XAzureFDID string `json:"XAzureFDID"`
 }
 
 func returnInfo(w http.ResponseWriter, r *http.Request) {
