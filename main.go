@@ -10,6 +10,8 @@ type result struct {
 	RemoteAddr    string `json:"RemoteAddr"`
 	RequestURI    string `json:"RequestURI"`
 	XForwardedFor string `json:"Xforwardedfor"`
+	Host string `json:"Xforwardedfor"`
+	XAzureFDID string `json:"Xforwardedfor"`
 }
 
 func returnInfo(w http.ResponseWriter, r *http.Request) {
@@ -18,11 +20,11 @@ func returnInfo(w http.ResponseWriter, r *http.Request) {
 		RemoteAddr:    r.RemoteAddr,
 		RequestURI:    r.RequestURI,
 		XForwardedFor: r.Header.Get("X-FORWARDED-FOR"),
-		XForwardedFor: r.Header.Get("Host"),
-		XForwardedFor: r.Header.Get("X-Azure-FDID"),
+		Host: r.Header.Get("Host"),
+		XAzureFDID: r.Header.Get("X-Azure-FDID"),
 	}
 
-	log.Println("RemoteAddr:" + r.RemoteAddr + " | RequestURI:" + r.RequestURI + " | X-FORWARDED-FOR:" + r.Header.Get("X-FORWARDED-FOR"))
+	log.Println("RemoteAddr:" + r.RemoteAddr + " | RequestURI:" + r.RequestURI + " | X-FORWARDED-FOR:" + r.Header.Get("X-FORWARDED-FOR") + " | Host:" + r.Header.Get("Host") + " | XAzureFDID:" + r.Header.Get("XAzureFDID"))
 	w.Header().Set("Content-Type", "application/json")
 
 	res, err := json.Marshal(result)
